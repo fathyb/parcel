@@ -50,7 +50,7 @@ class Resolver {
         // npm libraries can specify alternative main fields in their package.json,
         // we resolve the "module" and "jsnext:main" in priority of "browser" to get the full dependency tree.
         // libraries like d3.js specifies node.js specific files in the "main" which breaks the build
-        const main = pkg.module || pkg['jsnext:main'] || pkg.browser;
+        const main = pkg['es2015'] || pkg.module || pkg['jsnext:main'] || pkg.browser;
 
         if (main) {
           pkg.main = main;
